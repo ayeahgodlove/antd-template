@@ -1,7 +1,6 @@
 import React from 'react';
 import { Menu, Grid } from 'antd';
-const SubMenu = Menu.SubMenu;
-const MenuItemGroup = Menu.ItemGroup;
+import { Link } from 'react-router-dom';
 
 const { useBreakpoint } = Grid;
 
@@ -10,10 +9,10 @@ const RightMenu = () => {
   return (
     <Menu mode={md ? "horizontal" : "inline"}>
       <Menu.Item key="mail">
-        <a href="">Signin</a>
+        <Link to="/signin">Signin</Link>
       </Menu.Item>
       <Menu.Item key="app">
-        <a href="">Signup</a>
+        <Link to="/signup">Signup</Link>
       </Menu.Item>
     </Menu>
   );

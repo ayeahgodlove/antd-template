@@ -1,12 +1,18 @@
 {
-  "name": "ant-design-navbar",
+  "name": "resume-builder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "^4.1.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "@types/jest": "^29.2.2",
+    "@types/node": "^18.11.9",
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "antd": "^4.24.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "3.4.1",
+    "typescript": "^4.8.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -25,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/moment": "^2.13.0"
   }
 }
