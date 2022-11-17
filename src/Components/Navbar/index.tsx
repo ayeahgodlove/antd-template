@@ -1,22 +1,41 @@
+import {  MenuOutlined } from "@ant-design/icons";
 import { Button, Drawer } from "antd";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import LeftMenu from "./LeftMenu";
 import RightMenu from "./RightMenu";
 
-const Navbar: React.FC = () => {
+interface IProps {
+  showMenuIcon?: boolean;
+  handleShow?: () => void;
+}
+const Navbar: React.FC<IProps> = ({
+  showMenuIcon = false,
+  handleShow,
+}) => {
   const [visible, setVisible] = useState(false);
-  const showDrawer = () => {
-    setVisible(true);
-  };
+  // const showDrawer = () => {
+  //   setVisible(true);
+  // };
 
   const onClose = () => {
-    setVisible(true);
+    setVisible(false);
   };
 
   return (
     <nav className="menuBar">
       <div className="logo">
-        <a href="">logo</a>
+        {showMenuIcon && (
+          <Button
+            type="default"
+            icon={<MenuOutlined size={25} style={{ fontSize: "18px" }} />}
+            onClick={handleShow}
+            className="app-shell-baricon"
+          />
+        )}
+        <Link to="" style={{ marginLeft: 1 }}>
+          logo
+        </Link>
       </div>
       <div className="menuCon">
         <div className="leftMenu">
@@ -25,13 +44,16 @@ const Navbar: React.FC = () => {
         <div className="rightMenu">
           <RightMenu />
         </div>
-        <Button className="barsMenu" type="primary" onClick={showDrawer}>
-          <span className="barsBtn"></span>
-        </Button>
+        {/* {show && (
+          <Button className="barsMenu" type="primary" onClick={showDrawer}>
+            <span className="barsBtn"></span>
+          </Button>
+        )} */}
+
         <Drawer
           title="Basic Drawer"
           placement="right"
-          closable={false}
+          closable={true}
           onClose={onClose}
           visible={visible}
         >
