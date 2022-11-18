@@ -6,7 +6,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import Navbar from "Components/Navbar";
-import "./AppShell.css";
+import "./AppShell.scss";
 
 const { Sider, Content } = Layout;
 
@@ -36,12 +36,17 @@ interface IProps {
   children: any;
 }
 const AppShell: React.FC<IProps> = ({ children }) => {
+  const [collapsed, setCollapsed] = useState(false);
   const [show, setShow] = useState(false);
+
   const handleShow = () => {
     setShow(true);
     console.log("Hello...", show);
   };
-  
+
+  const handleCollapse = () => {
+    setCollapsed(!collapsed)
+  }
   const onClose = () => {
     setShow(false);
   };
@@ -50,12 +55,27 @@ const AppShell: React.FC<IProps> = ({ children }) => {
     <Layout className="app-shell-layout">
       <Navbar showMenuIcon handleShow={handleShow} />
       <Layout>
+        <Sider
+          width={200}
+          className={`site-layout-background ${
+            show ? "app-shell-sidebar_show" : "app-shell-sidebar_hide"
+          }`}
+          collapsible
+          collapsed={collapsed}
+          onCollapse={handleCollapse}
+        >
+          <Menu
+            mode="inline"
+            style={{ height: "100%", borderRight: 0 }}
+            items={items2}
+          />
+        </Sider>
         <Drawer
           title="HoneyMan"
           placement="left"
           closable={true}
           onClose={onClose}
-          visible={show}
+          open={show}
           width={200}
         >
           <Sider

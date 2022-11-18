@@ -10,6 +10,14 @@
     display: inline-block;
 }
 
+.ant-layout-sider-trigger {
+    background: #d7dade;
+    color: #333;
+
+    &:hover {
+        background: #fff;
+    }
+}
 @media screen and (min-width: 767px) {
     .app-shell-sidebar_hide {
         display: block;

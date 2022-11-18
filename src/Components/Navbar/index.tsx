@@ -1,4 +1,6 @@
-import {  MenuOutlined } from "@ant-design/icons";
+import {
+  MenuOutlined,
+} from "@ant-design/icons";
 import { Button, Drawer } from "antd";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -9,14 +11,8 @@ interface IProps {
   showMenuIcon?: boolean;
   handleShow?: () => void;
 }
-const Navbar: React.FC<IProps> = ({
-  showMenuIcon = false,
-  handleShow,
-}) => {
+const Navbar: React.FC<IProps> = ({ showMenuIcon = false, handleShow }) => {
   const [visible, setVisible] = useState(false);
-  // const showDrawer = () => {
-  //   setVisible(true);
-  // };
 
   const onClose = () => {
     setVisible(false);
@@ -38,24 +34,20 @@ const Navbar: React.FC<IProps> = ({
         </Link>
       </div>
       <div className="menuCon">
+        {/* other things */}
         <div className="leftMenu">
           <LeftMenu />
         </div>
         <div className="rightMenu">
           <RightMenu />
         </div>
-        {/* {show && (
-          <Button className="barsMenu" type="primary" onClick={showDrawer}>
-            <span className="barsBtn"></span>
-          </Button>
-        )} */}
 
         <Drawer
           title="Basic Drawer"
           placement="right"
           closable={true}
           onClose={onClose}
-          visible={visible}
+          open={visible}
         >
           <LeftMenu />
           <RightMenu />
